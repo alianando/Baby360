@@ -9,10 +9,11 @@ import BuyPage from "./components/buy_page/buy";
 import Details from "./components/details_page/Details";
 import AllProducts from "./components/all_products/AllProducts";
 import ProductInACatagory from "./components/ProductInACatagory/ProductInACatagory";
+import { HashRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Switch>
         <Route exact path="/">
           <App />
@@ -33,7 +34,29 @@ ReactDOM.render(
           <Details />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <HashRouter>
+      <Switch>
+        <Route exact path="/">
+          <App />
+        </Route>
+        <Route exact path="/about">
+          <AboutPage />
+        </Route>
+        <Route path="/product/:catagory">
+          <ProductInACatagory />
+        </Route>
+        <Route exact path="/products">
+          <AllProducts />
+        </Route>
+        <Route path="/buy/:id">
+          <BuyPage />
+        </Route>
+        <Route path="/details/:id">
+          <Details />
+        </Route>
+      </Switch>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
