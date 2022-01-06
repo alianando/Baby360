@@ -1,0 +1,14 @@
+.Breadcrumb{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2px;
+    background-color: #f6f9fc;
+    font-weight: 350px;
+}
+.Breadcrumb-pageName{
+    cursor: pointer;
+    margin: 10px;
+}
+.Breadcrumb-divider{
+    margin: 10px;
+}

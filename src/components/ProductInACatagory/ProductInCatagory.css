@@ -1,0 +1,61 @@
+/* .ProductInACatagoryyy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+} */
+
+.yyy {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  background-color: #f6f9fc;
+  padding-bottom: 2rem;
+  padding-left: 12rem;
+  padding-right: 12rem;
+}
+
+.yyy .Card {
+  width: 100%;
+  margin: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 5px #ccc;
+  background-color: #ffffff;
+}
+
+.yyy .Card .Image {
+  margin: 1rem;
+}
+
+.yyy .Card img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 3%;
+}
+
+@media only screen and (max-width: 500px) and (min-width: 10px) {
+  .yyy {
+    /* gap:1rem; */
+
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    padding-bottom: 2rem;
+  }
+  .yyy .Card {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 1600px) and (min-width: 501px) {
+  .yyy {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
+  .yyy .Card {
+    width: 100%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,111 @@
+.Nav-Grid {
+  display: grid;
+  grid-template-columns: 1fr 5.3fr 1.3fr;
+  gap: 1rem;
+  box-shadow: 0px 4px 16px rgba(43, 52, 69, 0.1);
+}
+
+.Nav-Button {
+  display: none;
+}
+
+.Nav-Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.Nav-Icon img {
+  height: 6rem;
+}
+.Nav-Search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Nav-Search input {
+  width: 100%;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 0.5px solid bisque;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+.Nav-Search .search__icon{
+  padding-left: 10px;
+  /* border: 0.5px solid bisque; */
+  
+
+}
+
+.Nav-Search .search__icon img{
+  height: 3rem;
+}
+
+
+.Nav-Search input[type="search"] {
+  border-radius: 25px;
+}
+.Nav-Search input[type="submit"] {
+  position: relative;
+  left: -0px;
+  border-radius: 25px;
+  width: 150px;
+}
+
+.Nav-Menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Nav-Menu .itemsNav {
+  list-style: none;
+  padding: 0 10px;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+
+.Nav-Menu .itemsNav a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 12px;
+}
+
+.Nav-Menu .itemsNav .button:hover{
+  cursor: pointer;
+}
+.Nav-Menu .itemsNav img{
+  height: 2.5rem; 
+}
+
+.Nav-Menu .itemsNav a:hover {
+  color: cyan;
+}
+
+@media screen and (max-width: 700px) {
+  .Nav-Grid {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    gap: 1rem;
+  }
+  .Nav-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Nav-Icon {
+    display: none;
+  }
+  .Nav-Menu {
+    display: none;
+  }
+}

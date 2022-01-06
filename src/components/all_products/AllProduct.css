@@ -1,0 +1,26 @@
+.aboutAllProduct {
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* Set text color to red */
+}
+.detailsProduct {
+  display: Grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 0.1fr;
+}
+.detailsProduct .big-imgProduct {
+  margin:1rem;
+  overflow: hidden;
+}
+.big-imgProduct img {
+  width: 98%;
+  height: 95%;
+  display: block;
+  object-fit: cover;
+
+}
+
+.detailsProduct .productPrice{
+  padding: 1rem;
+}
+
