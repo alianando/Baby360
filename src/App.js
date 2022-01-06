@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       <Banner />
-      {/* <NavBar />
+      <NavBar />
       <Slider2 />
       <ProductCatagory />
       <OfferSlider />
@@ -23,7 +23,7 @@ function App() {
       {ProductSliderBody("SHADES", "Glass")}
       {ProductSliderBody("HATS", "Hat")}
       <Footer />
-      <BottomNavBar /> */}
+      <BottomNavBar />
     </div>
   );
 }
