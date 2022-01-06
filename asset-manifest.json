@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/Baby360/static/css/main.48834959.chunk.css",
-    "main.js": "/Baby360/static/js/main.a1d14933.chunk.js",
-    "main.js.map": "/Baby360/static/js/main.a1d14933.chunk.js.map",
+    "main.js": "/Baby360/static/js/main.acad538d.chunk.js",
+    "main.js.map": "/Baby360/static/js/main.acad538d.chunk.js.map",
     "runtime-main.js": "/Baby360/static/js/runtime-main.f8c1a60e.js",
     "runtime-main.js.map": "/Baby360/static/js/runtime-main.f8c1a60e.js.map",
     "static/css/2.8a3d8635.chunk.css": "/Baby360/static/css/2.8a3d8635.chunk.css",
-    "static/js/2.cb55e588.chunk.js": "/Baby360/static/js/2.cb55e588.chunk.js",
-    "static/js/2.cb55e588.chunk.js.map": "/Baby360/static/js/2.cb55e588.chunk.js.map",
+    "static/js/2.de3cce47.chunk.js": "/Baby360/static/js/2.de3cce47.chunk.js",
+    "static/js/2.de3cce47.chunk.js.map": "/Baby360/static/js/2.de3cce47.chunk.js.map",
     "static/js/3.8ce172f8.chunk.js": "/Baby360/static/js/3.8ce172f8.chunk.js",
     "static/js/3.8ce172f8.chunk.js.map": "/Baby360/static/js/3.8ce172f8.chunk.js.map",
     "index.html": "/Baby360/index.html",
     "static/css/2.8a3d8635.chunk.css.map": "/Baby360/static/css/2.8a3d8635.chunk.css.map",
     "static/css/main.48834959.chunk.css.map": "/Baby360/static/css/main.48834959.chunk.css.map",
-    "static/js/2.cb55e588.chunk.js.LICENSE.txt": "/Baby360/static/js/2.cb55e588.chunk.js.LICENSE.txt",
+    "static/js/2.de3cce47.chunk.js.LICENSE.txt": "/Baby360/static/js/2.de3cce47.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/Baby360/static/media/revicons.e8746a62.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.f8c1a60e.js",
     "static/css/2.8a3d8635.chunk.css",
-    "static/js/2.cb55e588.chunk.js",
+    "static/js/2.de3cce47.chunk.js",
     "static/css/main.48834959.chunk.css",
-    "static/js/main.a1d14933.chunk.js"
+    "static/js/main.acad538d.chunk.js"
   ]
 }
