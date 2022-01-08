@@ -6,55 +6,38 @@ import { storage } from "../../Config";
 import { ref, getDownloadURL } from "firebase/storage";
 
 export default function NavBar() {
-  const [files, setFiles] = useState("");
+  const [baby360, setBaby360] = useState();
+  const [store, setStore] = useState();
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchImages = async (name, fun) => {
       // let result = await storage.ref().child("").listAll();
       // let urlPromises = result.items.map((imageRef) =>
       //   imageRef.getDownloadURL()
       // );
 
       // return Promise.all(urlPromises);
-      const starsRef = await ref(storage, "Baby360-logo1.png");
-      // Get the download URL
+      const starsRef = ref(storage, name);
       await getDownloadURL(starsRef)
         .then((url) => {
-          console.log(url);
-          setFiles(url);
+          fun(url);
         })
         .catch((error) => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
           switch (error.code) {
             case "storage/object-not-found":
-              // File doesn't exist
               break;
             case "storage/unauthorized":
-              // User doesn't have permission to access the object
               break;
             case "storage/canceled":
-              // User canceled the upload
               break;
-
-            // ...
-
             case "storage/unknown":
-              // Unknown error occurred, inspect the server response
               break;
           }
         });
     };
-    fetchImages();
-
-    // const loadImages = async () => {
-    //   const urls = await fetchImages();
-    //   setFiles(urls);
-    // };
-    // loadImages();
+    fetchImages("Baby360-logo1.png", setBaby360);
+    fetchImages("logo/store.svg", setStore);
   }, []);
-
-  // console.log(files);
 
   const history = useHistory();
   return (
@@ -68,8 +51,7 @@ export default function NavBar() {
           });
         }}
       >
-        {/* <img src={"/images/logo/Baby360-logo1.png"} alt="logo" /> */}
-        <img src={files} alt="logo" />
+        <img src={baby360} alt="logo" />
       </div>
       <div className="Nav-Search">
         <input type="search" placeholder="SEARCH" />
@@ -89,8 +71,8 @@ export default function NavBar() {
                 });
               }}
             >
-              <img src={"/images/Catagory/store.svg"} alt="store" />
-              <div className="">{files}</div>
+              <img src={store} alt="store" />
+              <div className="">Store</div>
             </div>
             {/* <li>
             <img src={"/images/Catagory/store.svg"} alt="logo" />

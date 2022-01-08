@@ -1,13 +1,39 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { storage } from "../../Config";
+import { ref, getDownloadURL } from "firebase/storage";
 import "./Footer.css";
 
 function Footer() {
+  const [logo, setlogo] = useState("");
+  useEffect(() => {
+    const fetchlogo = async (name, fun) => {
+      const starsRef = ref(storage, name);
+      await getDownloadURL(starsRef)
+        .then((url) => {
+          fun(url);
+        })
+        .catch((error) => {
+          switch (error.code) {
+            case "storage/object-not-found":
+              break;
+            case "storage/unauthorized":
+              break;
+            case "storage/canceled":
+              break;
+            case "storage/unknown":
+              break;
+          }
+        });
+    };
+    fetchlogo("Baby360-logo1.png", setlogo);
+  }, []);
   return (
     <div>
       <div className="Footer">
         <div className="logo">
           <div className="logoImg">
-            <img src={"/images/logo/Baby360-logo.png"} alt="logo" />
+            <img src={logo} alt="logo" />
           </div>
           <div className="Details">
             <p>

@@ -10,8 +10,8 @@ export default class Slider2 extends React.Component {
     this.state = {
       value: 0,
       slides: [
-        <EachImageWithText id={5} src={"/images/model/model333.png"}/>,
-        <EachImageWithText id={4} src={"/images/model/model11.png"}/>,
+        <EachImageWithText id={5} src={"model/model333.png"}/>,
+        <EachImageWithText id={4} src={"model/model11.png"}/>,
         <EachImageWithText id={1} src={"/images/shoe/shoe1.jpg"}/>, 
       ],
     };
