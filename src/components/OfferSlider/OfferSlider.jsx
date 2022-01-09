@@ -4,10 +4,14 @@ import Carousel from "react-multi-carousel";
 import data from "../../data/data.json";
 import ProductCard from "./ProductCard";
 import { useHistory } from "react-router";
+import { useState, useEffect } from "react";
+import { database } from "../../Config.js";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { ref, getDownloadURL } from "firebase/storage";
 
 function OfferSlider() {
   const history = useHistory();
-  let catagory ='shoes';
+  let catagory = "shoes";
   const goToSeeAll = () => {
     history.push({
       pathname: `/product/${catagory}`,
@@ -23,9 +27,13 @@ function OfferSlider() {
           <div className="OfferSlider-Title-Main">
             <h2>Flash Seles</h2>
           </div>
-          <div onClick={goToSeeAll} className="navigaton__button">See all</div>
+          <div onClick={goToSeeAll} className="navigaton__button">
+            See all
+          </div>
         </div>
-        <div className="OfferSlider-Body">{OfferSliderSlider("Shoes", "shoes")}</div>
+        <div className="OfferSlider-Body">
+          {OfferSliderSlider("Shoes", "shoes")}
+        </div>
       </div>
     </div>
   );
@@ -34,6 +42,18 @@ function OfferSlider() {
 export default OfferSlider;
 
 function OfferSliderSlider(name, catagory) {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      const querySnapshot = await getDocs(collection(database, "icon"));
+      querySnapshot.forEach((doc) => {
+        setBlogs([...blogs, doc.data()]);
+      });
+    };
+    fetchdata();
+  }, []);
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -53,11 +73,16 @@ function OfferSliderSlider(name, catagory) {
       slidesToSlide: 1,
     },
   };
-  return(
+  return (
     <div>
-        <Carousel responsive={responsive}>
-        {data.map((datas, index) => {
-          if (datas.catagory === `${catagory}`) {
+      <Carousel responsive={responsive}>
+        {/* <div className="">{da[1]}</div> */}
+        <div className="">h1</div>
+        <div className="">h1</div>
+        <div className="">h1</div>
+        <div className="">h1</div>
+        {/* {itemlist.map((datas, index) => { */}
+        {/* if (datas.catagory === `${catagory}`) {
             return (
               <div key={index}>
                 <ProductCard
@@ -74,8 +99,20 @@ function OfferSliderSlider(name, catagory) {
             return (
               null
             );
-          }
-        })}
+          } */}
+        {/* return (
+              <div key={index}>
+                <ProductCard
+                  id={datas.id}
+                  title={datas.title}
+                  price={datas.price}
+                  catagory={datas.catagory}
+                  details={datas.details}
+                  source={datas.location}
+                />
+              </div>
+            ); */}
+        {/* })} */}
       </Carousel>
     </div>
   );

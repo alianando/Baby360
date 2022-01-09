@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import "./BottomNavBar.css";
 
 function BottomNavBar() {
+
   const [home, setHome] = useState("");
   const [catagory, setCatagory] = useState("");
   const [Cart, setCart] = useState("");
@@ -30,11 +31,11 @@ function BottomNavBar() {
           }
         });
     };
-    fetchlogo('logo/home.png', setHome);
-    fetchlogo('logo/category.png', setCatagory);
-    fetchlogo('logo/cart.png', setCart);
-    fetchlogo('logo/phone.png', setCall);
-  }, []);
+    fetchlogo("logo/home.png", setHome);
+    fetchlogo("logo/category.png", setCatagory);
+    fetchlogo("logo/cart.png", setCart);
+    fetchlogo("logo/phone.png", setCall);
+  }, [""]);
   const history = useHistory();
   const gotoHome = () => {
     history.push({
@@ -58,7 +59,10 @@ function BottomNavBar() {
             />
             <span className="nav__text">Home</span>
           </div>
-          <div onClick={gotoAllProducts} className="nav__link nav__link--active">
+          <div
+            onClick={gotoAllProducts}
+            className="nav__link nav__link--active"
+          >
             <img
               className="material-icons nav__icon"
               src={catagory}

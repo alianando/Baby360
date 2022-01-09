@@ -12,7 +12,7 @@ export default class Slider2 extends React.Component {
       slides: [
         <EachImageWithText id={5} src={"model/model333.png"}/>,
         <EachImageWithText id={4} src={"model/model11.png"}/>,
-        <EachImageWithText id={1} src={"/images/shoe/shoe1.jpg"}/>, 
+        <EachImageWithText id={1} src={"model/model11.png"}/>, 
       ],
     };
     this.onchange = this.onchange.bind(this);
