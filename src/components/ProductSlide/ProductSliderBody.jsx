@@ -6,6 +6,11 @@ import data from "../../data/data.json";
 import { useHistory } from "react-router";
 import CauroselCard from "./CauroselCard";
 
+//for the database
+import { database } from "../../Config.js";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { useState, useEffect } from "react";
+
 function ProductSliderBody(name, catagory) {
   const history = useHistory();
   const goToSeeAll = () => {
@@ -36,6 +41,22 @@ function ProductSliderBody(name, catagory) {
 export default ProductSliderBody;
 
 function ProductSliderSlider(name, catagory) {
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    const fetchdata = async (catagory) => {
+      const querySnapshot = await getDocs(collection(database, catagory));
+      let c = [];
+      querySnapshot.forEach((doc) => {
+        c.push({ ...doc.data(), di: doc.id });
+        console.log(catagory)
+        console.log("the data is :  " + doc.id);
+      });
+
+      setBlogs(c);
+    };
+
+    fetchdata(catagory);
+  }, []);
   const responsive1 = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -59,63 +80,20 @@ function ProductSliderSlider(name, catagory) {
   return (
     <div className="Carousel-Body">
       <Carousel responsive={responsive1}>
-        {data.map((datas, index) => {
-          if (datas.catagory === `${catagory}`) {
-            return (
-              <div key={index} className="">
-                <CauroselCard
-                  id={datas.id}
-                  title={datas.title}
-                  price={datas.price}
-                  catagory={datas.catagory}
-                  details={datas.details}
-                  source={datas.source}
-                />
-              </div>
-            );
-          }else{
-            return(
-              null
-            )
-          }
+        {blogs.map((datas, index) => {
+          return (
+            <div key={index} className="">
+              <CauroselCard
+                id={datas.id}
+                title={datas.name}
+                price={datas.price}
+                // catagory={datas.catagory}
+                // details={datas.details}
+                source={datas.location}
+              />
+            </div>
+          );
         })}
-
-        {/* <div className="Card">
-          <div className="Image">
-            <img src="/images/shoe/shoe1.jpg" alt="" />
-          </div>
-          <div className="Price">$300</div>
-        </div>
-        <div className="Card">
-          <div className="Image">
-            <img src="/images/shoe/shoe1.jpg" alt="" />
-          </div>
-          <div className="Price">$300</div>
-        </div>
-        <div className="Card">
-          <div className="Image">
-            <img src="/images/shoe/shoe1.jpg" alt="" />
-          </div>
-          <div className="Price">$300</div>
-        </div>
-        <div className="Card">
-          <div className="Image">
-            <img src="/images/shoe/shoe1.jpg" alt="" />
-          </div>
-          <div className="Price">$300</div>
-        </div>
-        <div className="Card">
-          <div className="Image">
-            <img src="/images/shoe/shoe1.jpg" alt="" />
-          </div>
-          <div className="Price">$300</div>
-        </div>
-        <div className="Card">
-          <div className="Image">
-            <img src="/images/shoe/shoe1.jpg" alt="" />
-          </div>
-          <div className="Price">$300</div>
-        </div> */}
       </Carousel>
     </div>
   );

@@ -11,7 +11,7 @@
 .Footer .logo img {
   object-fit: cover;
   height: 100px;
-  width: 300px;
+  /* width: 350px; */
 }
 
 .Footer .About {

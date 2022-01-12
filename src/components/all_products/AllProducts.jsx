@@ -2,7 +2,7 @@ import React from "react";
 import "./AllProducts.css";
 import data from "../../data/data.json";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import '../ProductInACatagory/ProductInCatagory.css'
+import "../ProductInACatagory/ProductInCatagory.css";
 import { useHistory } from "react-router-dom";
 import NavBar from "../navbar/navbar";
 import Footer from "../Footer/Footer";
@@ -12,8 +12,8 @@ function AllProducts() {
   return (
     <div>
       <div>
-        <NavBar/>
-        <Breadcrumb name = "product" /> 
+        <NavBar />
+        <Breadcrumb name="product" />
       </div>
       {/* {ProductWithCatagory("shoes")}
       {ProductWithCatagory("shoes")}
@@ -22,7 +22,7 @@ function AllProducts() {
       {ProductWithCatagory("Hat")} */}
       <div className="ProductInACatagoryyy">
         <div className="yyy">
-        {data.map((datas, index) => {         
+          {data.map((datas, index) => {
             return (
               <div
                 className="Card"
@@ -35,70 +35,13 @@ function AllProducts() {
                 </div>
               </div>
             );
-        
-        })}
+          })}
         </div>
       </div>
-      <Footer/>
-      <BottomNavBar/>
+      <Footer />
+      <BottomNavBar />
     </div>
   );
 }
 
 export default AllProducts;
-
-// function ProductWithCatagory(catagory) {
-//   return (
-//     <div>
-//       <div>
-//         <h1 className="AllProductsTitle">{catagory}</h1>
-//       </div>
-//       <div className="allProductsRow">
-//         {data.map((datas, index) => {
-//           if (datas.catagory == `${catagory}`) {
-//             return (
-//               <div className="allProductItem">
-//                 <AllProduct
-//                   id={datas.id}
-//                   title={datas.title}
-//                   price={datas.price}
-//                   catagory={datas.catagory}
-//                   details={datas.details}
-//                   source={datas.source}
-//                 />
-//               </div>
-//             );
-//           }
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-
-// function ProductWithCatagoryAndMui(catagory) {
-//   return (
-//     <div>
-//       <div>
-//         <h1 className="AllProductsTitle">{catagory}</h1>
-//       </div>
-//       <div className="allProductsRow">
-//         {data.map((datas, index) => {
-//           if (datas.catagory == `${catagory}`) {
-//             return (
-//               <div className="allProductItem">
-//                 <OutlinedCard
-//                   id={datas.id}
-//                   title={datas.title}
-//                   price={datas.price}
-//                   catagory={datas.catagory}
-//                   details={datas.details}
-//                   source={datas.source}
-//                 />
-//               </div>
-//             );
-//           }
-//         })}
-//       </div>
-//     </div>
-//   );
-// }

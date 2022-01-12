@@ -8,8 +8,24 @@ import { useState, useEffect } from "react";
 import { database } from "../../Config.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
+import { storage } from "../../Config";
 
 function OfferSlider() {
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    const fetchdata = async (catagory) => {
+      const querySnapshot = await getDocs(collection(database, catagory));
+      let c = [];
+      querySnapshot.forEach((doc) => {
+        let a = doc.data();
+        c.push({ ...doc.data(), di: doc.id });
+      });
+
+      setBlogs(c);
+    };
+
+    fetchdata("icon");
+  }, []);
   const history = useHistory();
   let catagory = "shoes";
   const goToSeeAll = () => {
@@ -32,7 +48,7 @@ function OfferSlider() {
           </div>
         </div>
         <div className="OfferSlider-Body">
-          {OfferSliderSlider("Shoes", "shoes")}
+          {OfferSliderSlider("Shoes", "shoes", blogs)}
         </div>
       </div>
     </div>
@@ -41,19 +57,7 @@ function OfferSlider() {
 
 export default OfferSlider;
 
-function OfferSliderSlider(name, catagory) {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    const fetchdata = async () => {
-      const querySnapshot = await getDocs(collection(database, "icon"));
-      querySnapshot.forEach((doc) => {
-        setBlogs([...blogs, doc.data()]);
-      });
-    };
-    fetchdata();
-  }, []);
-
+function OfferSliderSlider(name, catagory, blogs) {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -76,13 +80,8 @@ function OfferSliderSlider(name, catagory) {
   return (
     <div>
       <Carousel responsive={responsive}>
-        {/* <div className="">{da[1]}</div> */}
-        <div className="">h1</div>
-        <div className="">h1</div>
-        <div className="">h1</div>
-        <div className="">h1</div>
-        {/* {itemlist.map((datas, index) => { */}
-        {/* if (datas.catagory === `${catagory}`) {
+        {blogs.map((datas, index) => {
+          if (true) {
             return (
               <div key={index}>
                 <ProductCard
@@ -92,27 +91,12 @@ function OfferSliderSlider(name, catagory) {
                   catagory={datas.catagory}
                   details={datas.details}
                   source={datas.source}
+                  img={datas.location}
                 />
               </div>
             );
-          }else{
-            return (
-              null
-            );
-          } */}
-        {/* return (
-              <div key={index}>
-                <ProductCard
-                  id={datas.id}
-                  title={datas.title}
-                  price={datas.price}
-                  catagory={datas.catagory}
-                  details={datas.details}
-                  source={datas.location}
-                />
-              </div>
-            ); */}
-        {/* })} */}
+          }
+        })}
       </Carousel>
     </div>
   );

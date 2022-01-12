@@ -11,12 +11,6 @@ export default function NavBar() {
 
   useEffect(() => {
     const fetchImages = async (name, fun) => {
-      // let result = await storage.ref().child("").listAll();
-      // let urlPromises = result.items.map((imageRef) =>
-      //   imageRef.getDownloadURL()
-      // );
-
-      // return Promise.all(urlPromises);
       const starsRef = ref(storage, name);
       await getDownloadURL(starsRef)
         .then((url) => {

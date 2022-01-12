@@ -8,6 +8,7 @@ import ProductCatagory from "./components/ProductCatagory/ProductCatagory";
 import ProductSliderBody from "./components/ProductSlide/ProductSliderBody";
 import Footer from "./components/Footer/Footer";
 import BottomNavBar from "./components/BottomNavBar/BottomNavBar.jsx";
+import FireStore from "./components/FireStore";
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
       <ProductCatagory />
       <OfferSlider />
       <ProductGroup />
-      {ProductSliderBody("SHOES", "shoes")}
+      {ProductSliderBody("SHOES", "icon")}
       {ProductSliderBody("BAGS", "bag")}
-      {ProductSliderBody("SHADES", "Glass")}
-      {ProductSliderBody("HATS", "Hat")}
+      {ProductSliderBody("SHADES", "glass")}
+      {ProductSliderBody("HATS", "hat")}
       <Footer />
       <BottomNavBar />
     </div>
